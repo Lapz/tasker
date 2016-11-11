@@ -7,16 +7,38 @@ var Task = function(text) {
     this.done = false;
 }
 
-var taskInput = document.getElementById("taskInput");
 
-var list = document.getElementById("list");
+var addbtn = document.getElementById("addTask");
 
 function addTask(taskInfo, listItems) {
 
+
+
     var task = new Task(taskInfo);
 
-    listItems.appendChild(task.text);
+    console.log(task.text);
+
+    var newContent = document.createTextNode(task.text)
+
+    listItems.appendChild(newContent);
 
 }
+document.addEventListener('DOMContentLoaded', function() {
+    addbtn.addEventListener("click", function(taskInput, list) {
 
-list.addEventListener("click", addTask(taskInput, list));
+        var taskInput = document.getElementById("taskInput").value;
+
+        var list = document.getElementById("list");
+
+
+        var task = new Task(taskInput);
+
+        console.log(task.text);
+
+        var newContent = document.createTextNode(task.text)
+
+        list.appendChild(newContent);
+
+
+    });
+})
