@@ -1,7 +1,7 @@
 var taskList = [];
 
 
-function Task(text) {
+var Task = function(text) {
     this.text = text;
     this.date = new Date();
     this.done = false;
@@ -11,5 +11,12 @@ var taskInput = document.getElementById("taskInput");
 
 var list = document.getElementById("list");
 
+function addTask(taskInfo, listItems) {
 
-list.addEventListener
+    var task = new Task(taskInfo);
+
+    listItems.appendChild(task.text);
+
+}
+
+list.addEventListener("click", addTask(taskInput, list));
