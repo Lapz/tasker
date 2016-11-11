@@ -1,74 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> My little tasker</title>
-      <link rel="stylesheet" href="css/bootstrap.css">
-      <link rel ="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css" />
     <!--[if lt IE 9]>
       <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
+</head>
+
+<body>
 
 
 
     <br>
-  </br>
+    </br>
 
 
 
-<!-- Modal closed -->
+    <!-- Modal closed -->
 
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
 
-<div class="alert alert-success collapse" role = "alert">
-  <p class="text-center"><strong> Task removed </strong></p>
-</div>
-
-<!-- Table --->
-
-<div class = "container-fluid">
-
-  <div class ="row">
-    <div class=" col-md-4 col-md-offset-4 text-center"
-    <h1><p>Simple vanilla tasker</p></h1>
-  <div class ="form-control">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Enter a task">
+    <div class="alert alert-success collapse" role="alert">
+        <p class="text-center"><strong> Task removed </strong></p>
     </div>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add a new task</button>
+
+    <!-- Table --->
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class=" col-md-4 col-md-offset-4 text-center" <h1>
+                <p>Simple vanilla tasker</p>
+                </h1>
+
+                <form class="form-inline">
+                    <div class="form-control">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter a task">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add a new task</button>
+
+                    </div>
+                </form>
 
 
-  </div>
+
+
+
+                <ul>
+
+                </ul>
+
+
+
+            </div>
 
 
 
 
-    <ul>
-
-    </ul>
+            <!--- Modal trigger-->
 
 
-
-</div>
-
-
-
-
-  <!--- Modal trigger-->
-
-
-</div>
+        </div>
+    </div>
 
 
     <script src="js/vendor/jquery-3.1.1.min.js"></script>
     <script src="js/vendor/bootstrap.js"></script>
-    <script src ="js/main.js"></script>
-  </body>
+    <script src="js/main.js"></script>
+</body>
+
 </html>
