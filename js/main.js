@@ -10,35 +10,40 @@ var Task = function(text) {
 
 var addbtn = document.getElementById("addTask");
 
-function addTask(taskInfo, listItems) {
+var ul = document.getElementById("list");
+
+function addTask() {
+
+    var taskInput = document.getElementById("taskInput").value;
+
+    var list = document.getElementById("list");
 
 
-
-    var task = new Task(taskInfo);
+    var task = new Task(taskInput);
 
     console.log(task.text);
 
+    var liEl = document.createElement("li");
+
     var newContent = document.createTextNode(task.text)
 
-    listItems.appendChild(newContent);
+    liEl.appendChild(newContent);
+
+    list.appendChild(liEl);
 
 }
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    addbtn.addEventListener("click", function(taskInput, list) {
-
-        var taskInput = document.getElementById("taskInput").value;
-
-        var list = document.getElementById("list");
-
-
-        var task = new Task(taskInput);
-
-        console.log(task.text);
-
-        var newContent = document.createTextNode(task.text)
-
-        list.appendChild(newContent);
-
-
+    addbtn.addEventListener("click", function() {
+        addTask();
     });
-})
+
+    ul.addEventListener("change", function() {
+        console.log("Updated");
+    });
+
+
+
+});
