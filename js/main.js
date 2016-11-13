@@ -15,6 +15,8 @@ var Elements = function() {
   this.li = document.createElement("div"); // <li> in html
 
   this.input =  document.createElement("input");  // <input> in html;
+
+  this.extraDiv = document.createElement("div");
 }
 
 
@@ -23,48 +25,67 @@ var addbtn = document.getElementById("addTask");
 var ul = document.getElementById("list");
 
 
-//console.log(el.div);
+var today = new Date();
+
+//
+//var o = today.getDate() +"/"+ today.getMonth() + "/" + today.getFullYear();
+
+//console.log(o);
 
 function addTask() {
 
-    var taskInput = document.getElementById("taskInput").value;
 
+
+    var taskInput = document.getElementById("taskInput").value;
     var list = document.getElementById("list");
 
+    if (taskInput == false){
+      return null;
+    }
+    else {
 
-    var task = new Task(taskInput);
+      var task = new Task(taskInput);
 
-    //console.log(task.text);
+      //console.log(task.text);
 
+      var el = new Elements();
 
+      el.input.type = "checkbox";
+      var o = today.getDate() +"/"+ today.getMonth() + "/" + today.getFullYear();
 
+      el.div.className = "itemWrapper text-center";
 
-    var el = new Elements();
-
-
-    el.input.type = "checkbox";
-
-
-
-    el.div.className = "itemWrapper text-center";
-
-
-
-    var newContent = document.createTextNode(task.text)
-
-    var newDate = document.createTextNode(task.date);
-
-    el.li.appendChild(newContent);
-
-    el.li.appendChild(newDate);
-
-    el.li.appendChild(el.input);
+      el.extraDiv.className = "otherInfo";
 
 
 
-    el.div.appendChild(el.li);
+      el.extraDiv.appendChild(el.input);
 
-    list.appendChild(el.div);
+
+
+      var newContent = document.createTextNode(task.text)
+
+      var newDate = document.createTextNode(o);
+
+        el.extraDiv.appendChild(newDate);
+
+      el.li.appendChild(newContent);
+
+      //el.li.appendChild(newDate);
+
+      el.li.appendChild(el.extraDiv);
+
+
+/*
+      el.li.appendChild(el.input);
+
+      ;
+
+
+*/el.div.appendChild(el.li);
+      list.appendChild(el.div);
+
+    }
 
 }
 
@@ -72,7 +93,11 @@ function addTask() {
 
 document.addEventListener('DOMContentLoaded', function() {
     addbtn.addEventListener("click", function() {
-        addTask();
+        if(addTask() === null) {
+          console.log("fuck");
+                };
+
+
     });
 
     ul.addEventListener("change", function() {
