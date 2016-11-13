@@ -105,20 +105,21 @@ function getIndex() {
     ul.childNodes.forEach(function(el){
 
     el.childNodes.forEach(function(e){
-        console.log(e.childNodes[1]);
-        e.childNodes[1].forEach(function(a){
-          console.log(a)
+        console.log(e.childNodes[1].childNodes);
+
+
+
 
 
 
 /*
           //console.log(a.childNodes[0]);
-
-          if(a.childNodes[0].checked == true) {
-            a.removeChild(a.childNodes[0])
+*/
+          if(e.childNodes[1].childNodes[0].checked == true) {
+          console.log("found");
           }
 
-*/
+
 
 
         })
@@ -127,7 +128,7 @@ function getIndex() {
 
 
 
-    })
+
 
 
 }
