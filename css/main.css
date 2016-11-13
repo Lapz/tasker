@@ -12,3 +12,18 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.itemWrapper {
+  background-color: #80A1D4;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-radius: 5px;
+  height: 3em;
+
+
+
+}
+
+li {
+  list-style-type: none;
+}

@@ -8,9 +8,22 @@ var Task = function(text) {
 }
 
 
+
+var Elements = function() {
+  this.div = document.createElement("li"); // div in html;
+
+  this.li = document.createElement("div"); // <li> in html
+
+  this.input =  document.createElement("input");  // <input> in html;
+}
+
+
 var addbtn = document.getElementById("addTask");
 
 var ul = document.getElementById("list");
+
+
+//console.log(el.div);
 
 function addTask() {
 
@@ -23,13 +36,32 @@ function addTask() {
 
     console.log(task.text);
 
-    var liEl = document.createElement("li");
+
+    var el = new Elements();
+
+
+
+
+
+    el.input.type = "checkbox";
+
+
+
+    el.div.className = "itemWrapper text-center";
+
+
 
     var newContent = document.createTextNode(task.text)
 
-    liEl.appendChild(newContent);
+    el.li.appendChild(newContent);
 
-    list.appendChild(liEl);
+    el.li.appendChild(el.input);
+
+
+
+    el.div.appendChild(el.li);
+
+    list.appendChild(el.div);
 
 }
 
