@@ -34,13 +34,12 @@ function addTask() {
 
     var task = new Task(taskInput);
 
-    console.log(task.text);
+    //console.log(task.text);
+
+
 
 
     var el = new Elements();
-
-
-
 
 
     el.input.type = "checkbox";
@@ -53,7 +52,11 @@ function addTask() {
 
     var newContent = document.createTextNode(task.text)
 
+    var newDate = document.createTextNode(task.date);
+
     el.li.appendChild(newContent);
+
+    el.li.appendChild(newDate);
 
     el.li.appendChild(el.input);
 
