@@ -17,6 +17,16 @@ var Elements = function() {
   this.input =  document.createElement("input");  // <input> in html;
 
   this.extraDiv = document.createElement("div");
+
+  this.input.type = "checkbox";
+
+  this.input.checked = false;
+
+  this.div.className = "itemWrapper text-center";
+
+  this.extraDiv.className = "otherInfo";
+
+  this.extraDiv.appendChild(this.input)
 }
 
 
@@ -34,9 +44,8 @@ var today = new Date();
 
 function addTask() {
 
-
-
     var taskInput = document.getElementById("taskInput").value;
+
     var list = document.getElementById("list");
 
     if (taskInput == false){
@@ -50,16 +59,16 @@ function addTask() {
 
       var el = new Elements();
 
-      el.input.type = "checkbox";
+      //el.input.type = "checkbox";
       var o = today.getDate() +"/"+ today.getMonth() + "/" + today.getFullYear();
 
       el.div.className = "itemWrapper text-center";
 
-      el.extraDiv.className = "otherInfo";
+      //el.extraDiv.className = "otherInfo";
 
 
 
-      el.extraDiv.appendChild(el.input);
+      //el.extraDiv.appendChild(el.input);
 
 
 
@@ -90,6 +99,40 @@ function addTask() {
 }
 
 
+function getIndex() {
+    var ul = document.getElementById("list");
+
+    ul.childNodes.forEach(function(el){
+
+    el.childNodes.forEach(function(e){
+        console.log(e.childNodes[1]);
+        e.childNodes[1].forEach(function(a){
+          console.log(a)
+
+
+
+/*
+          //console.log(a.childNodes[0]);
+
+          if(a.childNodes[0].checked == true) {
+            a.removeChild(a.childNodes[0])
+          }
+
+*/
+
+
+        })
+
+      })
+
+
+
+    })
+
+
+}
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     addbtn.addEventListener("click", function() {
@@ -97,11 +140,16 @@ document.addEventListener('DOMContentLoaded', function() {
           console.log("fuck");
                 };
 
+        getIndex()
+
+
+
 
     });
 
     ul.addEventListener("change", function() {
         console.log("Updated");
+        getIndex();
     });
 
 
