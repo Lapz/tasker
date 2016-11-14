@@ -10,23 +10,23 @@ var Task = function(text) {
 
 
 var Elements = function() {
-  this.div = document.createElement("li"); // div in html;
+    this.div = document.createElement("li"); // div in html;
 
-  this.li = document.createElement("div"); // <li> in html
+    this.li = document.createElement("div"); // <li> in html
 
-  this.input =  document.createElement("input");  // <input> in html;
+    this.input = document.createElement("input"); // <input> in html;
 
-  this.extraDiv = document.createElement("div");
+    this.extraDiv = document.createElement("div");
 
-  this.input.type = "checkbox";
+    this.input.type = "checkbox";
 
-  this.input.checked = false;
+    this.input.checked = false;
 
-  this.div.className = "itemWrapper text-center";
+    this.div.className = "itemWrapper text-center";
 
-  this.extraDiv.className = "otherInfo";
+    this.extraDiv.className = "otherInfo";
 
-  this.extraDiv.appendChild(this.input)
+    this.extraDiv.appendChild(this.input)
 }
 
 
@@ -48,51 +48,51 @@ function addTask() {
 
     var list = document.getElementById("list");
 
-    if (taskInput == false){
-      return null;
-    }
-    else {
+    if (taskInput == false) {
+        return null;
+    } else {
 
-      var task = new Task(taskInput);
+        var task = new Task(taskInput);
 
-      //console.log(task.text);
+        //console.log(task.text);
 
-      var el = new Elements();
+        var el = new Elements();
 
-      //el.input.type = "checkbox";
-      var o = today.getDate() +"/"+ today.getMonth() + "/" + today.getFullYear();
+        //el.input.type = "checkbox";
+        var o = today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear();
 
-      el.div.className = "itemWrapper text-center";
+        el.div.className = "itemWrapper text-center";
 
-      //el.extraDiv.className = "otherInfo";
-
-
-
-      //el.extraDiv.appendChild(el.input);
+        //el.extraDiv.className = "otherInfo";
 
 
 
-      var newContent = document.createTextNode(task.text)
+        //el.extraDiv.appendChild(el.input);
 
-      var newDate = document.createTextNode(o);
+
+
+        var newContent = document.createTextNode(task.text)
+
+        var newDate = document.createTextNode(o);
 
         el.extraDiv.appendChild(newDate);
 
-      el.li.appendChild(newContent);
+        el.li.appendChild(newContent);
 
-      //el.li.appendChild(newDate);
+        //el.li.appendChild(newDate);
 
-      el.li.appendChild(el.extraDiv);
-
-
-/*
-      el.li.appendChild(el.input);
-
-      ;
+        el.li.appendChild(el.extraDiv);
 
 
-*/el.div.appendChild(el.li);
-      list.appendChild(el.div);
+        /*
+              el.li.appendChild(el.input);
+
+              ;
+
+
+        */
+        el.div.appendChild(el.li);
+        list.appendChild(el.div);
 
     }
 
@@ -102,29 +102,29 @@ function addTask() {
 function getIndex() {
     var ul = document.getElementById("list");
 
-    ul.childNodes.forEach(function(el){
+    ul.childNodes.forEach(function(el) {
 
-    el.childNodes.forEach(function(e){
-        console.log(e.childNodes[1].childNodes);
-
-
+        el.childNodes.forEach(function(e) {
+            console.log(e.childNodes[1].childNodes);
 
 
 
 
-/*
-          //console.log(a.childNodes[0]);
-*/
-          if(e.childNodes[1].childNodes[0].checked == true) {
-          console.log("found");
-          }
+
+
+            /*
+                      //console.log(a.childNodes[0]);
+            */
+            if (e.childNodes[1].childNodes[0].checked == true) {
+                console.log("found");
+            }
 
 
 
 
         })
 
-      })
+    })
 
 
 
@@ -137,9 +137,9 @@ function getIndex() {
 
 document.addEventListener('DOMContentLoaded', function() {
     addbtn.addEventListener("click", function() {
-        if(addTask() === null) {
-          console.log("fuck");
-                };
+        if (addTask() === null) {
+            console.log("fuck");
+        };
 
         getIndex()
 
