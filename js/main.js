@@ -71,7 +71,7 @@ function addTask() {
 }
 
 
-function getIndex() {
+function deleteTask() {
     var ul = document.getElementById("list");
 
     ul.childNodes.forEach(function(el) {
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     ul.addEventListener("change", function() {
         console.log("Updated");
-        getIndex();
+       deleteTask();
     });
 
 });
