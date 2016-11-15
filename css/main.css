@@ -19,9 +19,6 @@ body {
   margin-bottom: 2em;
   border-radius: 5px;
   height: 3em;
-
-
-
 }
 
 .otherInfo {
@@ -32,4 +29,11 @@ body {
 
 li {
   list-style-type: none;
+}
+
+.p{
+  /*overflow: auto;*/
+display: block;;
+word-wrap: break-word
+/*Text-overflow:ellipsis;*/
 }
