@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
   height: 100%;
 }
@@ -32,8 +32,9 @@ li {
 }
 
 .p{
-  /*overflow: auto;*/
+overflow: auto;
 display: block;;
 word-wrap: break-word
-/*Text-overflow:ellipsis;*/
+Text-overflow:ellipsis;
 }
+*/
