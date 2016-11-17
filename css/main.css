@@ -1,8 +1,8 @@
 html,
 
 body {
-  height: 100%;
-  color:  #001f3f,     s
+  height: auto;
+  background-color:  #001f3f;
 }
 
 .container-fluid {
@@ -17,10 +17,13 @@ body {
 
 .itemWrapper {
   background-color: #80A1D4;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  border-radius: 5px;
-  height: 3em;
+    width: auto;
+   height: auto;
+   overflow:auto;
+
+   margin-top: 2em;
+
+   border-radius: 5px;
 }
 
 
@@ -29,8 +32,12 @@ li {
   list-style-type: none;
 }
 
-.info{
+p{
 overflow: auto;
 display: block;
 word-wrap: normal;
+}
+
+h1{
+  color:#7699D4;
 }

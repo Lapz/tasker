@@ -92,7 +92,7 @@ function createTask(tasktext, list) {
 
     var taskText = document.createTextNode(task.text); // a var to hold the text for the task
 
-    var date = task.date.getTime() + " on the" + task.date.getDate() + "/" + task.date.getMonth() + "/" + task.date.getFullYear(); // creaets a string that will hold the time that task was created
+    var date = task.date.toLocaleTimeString() + " on the " + task.date.getDate() + "/" + task.date.getMonth() + "/" + task.date.getFullYear(); // creaets a string that will hold the time that task was created
 
     el.textP.appendChild(taskText); // appends the taskText to
 
