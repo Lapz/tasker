@@ -17,13 +17,13 @@ var Elements = function() {
 
     this.col8 = document.createElement("div"); // creates the col to hold the content 8
 
-    this.col8.className = "col-xs-8"; // assigns the classs for the col
+    this.col8.className = "col-xs-6"; // assigns the classs for the col
 
 
 
     this.col2Date = document.createElement("div"); // creates the col to hold the the date
 
-    this.col2Date.className = "col-xs-2"; // assigns the classs for the col for the date
+    this.col2Date.className = "col-xs-4"; // assigns the classs for the col for the date
 
     this.col2Input = document.createElement("div"); // creates the col to hold the tick box
 
@@ -40,7 +40,9 @@ var Elements = function() {
 
 
 
-    this.li = document.createElement("li");
+    this.li = document.createElement("li")
+
+    this.row.className = "itemWrapper";
 
     this.textP = document.createElement("p");
 

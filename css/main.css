@@ -1,6 +1,8 @@
 html,
+
 body {
   height: 100%;
+  color:  #001f3f,     s
 }
 
 .container-fluid {
@@ -33,7 +35,6 @@ li {
 
 .info{
 overflow: auto;
-display: block;;
-word-wrap: break-word
-Text-overflow:ellipsis;
+display: block;
+word-wrap: normal;
 }
