@@ -44,6 +44,8 @@ var Elements = function() {
 
     this.textP = document.createElement("p");
 
+    this.textP.className = "info"
+
     this.dateP = document.createElement("p");
 
 
@@ -95,21 +97,21 @@ function createTask(tasktext) {
 
     el.dateP.appendChild(document.createTextNode(task.date.getDate() + "/" + task.date.getMonth() + "/" + task.date.getFullYear()));;
 
-    console.log(el.li.childNodes[0].childNodes)
+    //console.log(el.li.childNodes[0].childNodes)
 
     el.li.childNodes[0].childNodes[0].appendChild(el.textP);
 
     el.li.childNodes[0].childNodes[1].appendChild(el.dateP);
 
-    console.log(ul);
+    console.log(ul.childNodes.length);
 
-    console.log(el.li);
+    //console.log(el.li);
 
 
     ul.appendChild(el.li);
 
 
-    console.log(el.li.childNodes[0].childNodes)
+    //console.log(el.li.childNodes[0].childNodes)
 
 
 
@@ -140,8 +142,27 @@ function addTask() {
 }
 
 
-function deleteTask() {;
+function deleteTask() {
 
+    var inputs = document.querySelectorAll('input[type=checkbox]');
+
+
+    for (var item of inputs) {
+
+        if (item.checked == true) {
+
+            var u = document.getElementById('list');
+
+            var father = item.parentNode.parentNode.parentNode;
+
+            u.removeChild(father);
+
+        }
+    }
+
+}
+
+/*
     var arr = [];
 
     ul.childNodes.forEach(function(e) {
@@ -157,22 +178,22 @@ function deleteTask() {;
     //console.log(arr);
 
     for (var i = 0; i < arr.length; i++) {
-        console.log(i.childNodes);
+        console.log(arr[i].childNodes.values());
     }
+*/
+//console.log(e);*/
 
-    //console.log(e);*/
+//console.log(ul.children)
 
-    //console.log(ul.children)
+/*
+    el.childNodes.forEach(function(e) {
+        if (e.childNodes[1].childNodes[0].checked == true) {
+            e.parentNode.parentNode.removeChild(e.parentNode)
+        }
 
-    /*
-        el.childNodes.forEach(function(e) {
-            if (e.childNodes[1].childNodes[0].checked == true) {
-                e.parentNode.parentNode.removeChild(e.parentNode)
-            }
+    })*/
 
-        })*/
 
-}
 
 
 
@@ -191,4 +212,4 @@ document.addEventListener('DOMContentLoaded', function() {
         deleteTask();
     });
 
-});
+});;
