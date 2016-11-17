@@ -47,10 +47,10 @@ var Elements = function() {
     this.dateP = document.createElement("p");
 
 
-    // creates a list element
+    // creates a list element <script src="js/vendor/jquery-3.1.1.min.js"></script>
 
     /*
-<li>
+<li>  <script src="js/vendor/bootstrap.js"></script>
     <div class="row">
         <div class="col-xs-6">
 
@@ -71,9 +71,6 @@ var Elements = function() {
 
     this.row.appendChild(this.col2Input);
 
-
-
-
     this.li.appendChild(this.row); // inserts the row into li
 
 
@@ -82,32 +79,31 @@ var Elements = function() {
 
 var addbtn = document.getElementById("addTask");
 
-var ul = document.getElementById("list");
-
-
+var ul = document.getElementById("list")
 
 
 function createTask(tasktext) {
     // Need to refractor and change the css as welll as the do speed benchmark test. Also create a new branch. Add a new class fot the p elemetns and the css appploie s to evert single one of the elemetens
-    var ul = document.getElementById("list");
 
     var task = new Task(tasktext); // create the task
 
     var el = new Elements(); // creates the Elements
 
-    var date = document.createTextNode(task.date.getDate() + "/" + task.date.getMonth() + "/" + task.date.getFullYear());
-
     var newContent = document.createTextNode(task.text);
 
     el.textP.appendChild(newContent);
 
-    el.dateP.appendChild(date);
+    el.dateP.appendChild(document.createTextNode(task.date.getDate() + "/" + task.date.getMonth() + "/" + task.date.getFullYear()));;
 
     console.log(el.li.childNodes[0].childNodes)
 
     el.li.childNodes[0].childNodes[0].appendChild(el.textP);
 
     el.li.childNodes[0].childNodes[1].appendChild(el.dateP);
+
+    console.log(ul);
+
+    console.log(el.li);
 
 
     ul.appendChild(el.li);
@@ -134,7 +130,6 @@ function addTask() {
 
     var taskInput = document.getElementById("taskInput").value;
 
-    var list = document.getElementById("list");
 
     if (taskInput == false) {
         return null;
@@ -145,14 +140,31 @@ function addTask() {
 }
 
 
-function deleteTask() {
-    var ul = document.getElementById("list");
+function deleteTask() {;
 
-    ul.childNodes.forEach(function(el) {
+    var arr = [];
 
-        console.log(el);
-        /*
+    ul.childNodes.forEach(function(e) {
 
+        if (e.nodeType == Node.ELEMENT_NODE)
+            arr.push(e);
+
+        //console.log(e.childNodes);
+
+
+    })
+
+    //console.log(arr);
+
+    for (var i = 0; i < arr.length; i++) {
+        console.log(i.childNodes);
+    }
+
+    //console.log(e);*/
+
+    //console.log(ul.children)
+
+    /*
         el.childNodes.forEach(function(e) {
             if (e.childNodes[1].childNodes[0].checked == true) {
                 e.parentNode.parentNode.removeChild(e.parentNode)
@@ -160,8 +172,8 @@ function deleteTask() {
 
         })*/
 
-    })
 }
+
 
 
 
@@ -175,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     ul.addEventListener("change", function() {
-        console.log("Updated");
+        //console.log("Updated");
         deleteTask();
     });
 
