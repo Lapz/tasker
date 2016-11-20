@@ -20,24 +20,38 @@ body {
     width: auto;
    height: auto;
    overflow:auto;
-
    margin-top: 2em;
-
    border-radius: 5px;
 }
 
+.itemWrapper * {
+  margin-top: 5px;
+  overflow: auto;
+  display: block;
+  word-wrap: break-word;
+}
 
 
 li {
   list-style-type: none;
 }
 
-p{
-overflow: auto;
-display: block;
-word-wrap: normal;
-}
+
 
 h1{
   color:#7699D4;
+}
+
+textarea {
+  margin-top: 1em;
+  resize: none;
+}
+
+.editBtn {
+  visibility: hidden;
+  margin-bottom: 1em;
+}
+
+.itemWrapper:hover .editBtn {
+     visibility: visible;
 }

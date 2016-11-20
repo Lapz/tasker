@@ -7,6 +7,12 @@ var Task = function(text) {
     this.done = false;
 }
 
+var Edit = function(text) {
+    this.textArea = document.createElement("textarea");
+    this.text = text.innerHTML;
+    this.textArea.innerHTML = (this.text);
+}
+
 
 
 var Elements = function() {
@@ -28,6 +34,7 @@ var Elements = function() {
 
     this.dateP = document.createElement("p"); // creates a text element to hold the date from the task's date
 
+    this.editBtn = document.createElement("btn"); // creates the button for the editing
     // Sets the className
 
     this.row.className = "row"; // assigns the classs row
@@ -41,6 +48,10 @@ var Elements = function() {
     this.row.className = "itemWrapper"; // sets the class for the row
 
     this.textP.className = "info" // sets the class of the textP element to other element
+
+    this.editBtn.className = "btn btn-info editBtn";
+
+    this.editBtn.id = "edit";
 
     // Sets up the input button
 
@@ -78,6 +89,8 @@ var Elements = function() {
 
     this.li.appendChild(this.row); // inserts the row into li element
 
+    this.editBtn.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i> Edit';
+
 }
 
 
@@ -99,6 +112,8 @@ function createTask(tasktext, list) {
     el.dateP.appendChild(document.createTextNode(date));
 
     el.li.childNodes[0].childNodes[0].appendChild(el.textP);
+
+    el.li.childNodes[0].childNodes[0].appendChild(el.editBtn);
 
     el.li.childNodes[0].childNodes[1].appendChild(el.dateP);
 
@@ -139,6 +154,24 @@ function deleteTask() {
 
 }
 
+function editTask(txtToEd, el) {
+
+    var txtToEd = el.childNodes[0];
+
+    var edit = new Edit(txtToEd);
+
+    console.log(edit);
+    console.log(edit.textArea);
+
+
+    var e = el.childNodes[0];
+
+    var f = edit.textArea;
+
+    el.replaceChild(f, e);
+
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -146,17 +179,92 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var ul = document.getElementById("list");
 
+
+
+    //console.log(editBtn)
+
     addbtn.addEventListener("click", function() {
         if (addTask(ul) === null) {
             console.log("fuck");
         };
+
     });
-
-
 
     ul.addEventListener("change", function() {
         //console.log("Updated");
         deleteTask();
+
     });
 
-});;
+
+    // create an observer instance
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+
+
+
+            if (mutation.type === 'childList') {
+
+                var editBtn = document.getElementsByClassName("editBtn");
+                console.log(editBtn)
+
+
+                Array.prototype.forEach.call(editBtn, function(el) {
+                    // Do stuff here
+
+                    el.addEventListener("click", function() {
+
+                        var text = el.parentNode.childNodes[0].innerHTML;
+
+
+
+                        editTask(text, el.parentNode);
+
+
+                        console.log(text);
+
+                    })
+
+                });
+
+
+
+
+                console.log("adsfssa")
+                console.log(mutation.type);
+
+            }
+        });
+    });
+
+    // configuration of the observer:
+    var config = {
+        attributes: true,
+        childList: true,
+        characterData: true
+    };
+
+    // pass in the target node, as well as the observer options
+    observer.observe(ul, config);
+
+    // later, you can stop observing
+    ;
+
+});
+/*
+
+do {
+
+}
+while(editBtn != false)
+/*
+editBtn.addEventListener("click", function(){
+
+  var text = editBtn.parentNode.childNodes[0].innerHTML;
+
+
+
+  console.log(text);
+
+
+});*/
